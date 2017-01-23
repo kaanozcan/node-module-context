@@ -11,7 +11,7 @@
     "module",
     "context",
     "isolation",
-    "concurrency",
+    "concurrency"
   ],
   "repository": "kaanozcan/node-module-context",
   "author": "kaanozcan <knzcnn@gmail.com> (https://github.com/kaanozcan/)",
