@@ -6,6 +6,14 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Kaan Özcan",
+  "keywords": [
+    "nodejs",
+    "module"
+    "context",
+    "isolation",
+    "concurrency",
+  ],
+  "repository": "kaanozcan/node-module-context",
+  "author": "kaanozcan <knzcnn@gmail.com> (https://github.com/kaanozcan/)",
   "license": "MIT"
 }
