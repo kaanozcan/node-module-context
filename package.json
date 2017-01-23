@@ -8,7 +8,7 @@
   },
   "keywords": [
     "nodejs",
-    "module"
+    "module",
     "context",
     "isolation",
     "concurrency",
