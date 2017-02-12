@@ -43,7 +43,7 @@ execute(context);
 ```
 
 ##TODO
-- [ ] Split code for testability.
+- [x] Split code for testability.
 - [ ] Write unit tests.
 - [x] Preload user modules.
 - [ ] Preload npm packages.
