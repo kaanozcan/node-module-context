@@ -47,5 +47,6 @@ execute(context);
 ## TODO
 - [x] Split code for testability.
 - [ ] Write unit tests.
+- [ ] Add option to allow choosing which modules to be resolved by global require and which by the contextified require method for performance reasons.
 - [x] Preload user modules.
 - [ ] Preload npm packages.
