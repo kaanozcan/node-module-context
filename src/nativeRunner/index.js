@@ -4,15 +4,24 @@ const vm = require("vm"),
 
 const bindings = process.binding("natives");
 
-module.exports = (context) => (id, require) => {
-  let code = bindings[id];
+module.exports = (context) => {
+  const cache = {};
+  return (id, require) => {
+    if (cache[id]) {
+      return cache[id]
+    }
 
-  const wrappedCode = mockedModules.native_module.wrap(code);
+    const code = bindings[id],
+          wrappedCode = mockedModules.native_module.wrap(code);
 
-  let module = { exports: {} },
-      __filename = "lib/" + id + ".js";
+    cache[id] = { exports: {} };
 
-  vm.runInContext(wrappedCode, context, { filename: __filename })(module.exports, require, module, __filename, path.dirname(__filename));
+    const __filename = "lib/" + id + ".js";
 
-  return module.exports;
-};
+    const module = vm.runInContext(wrappedCode, context, { filename: __filename });
+
+    module(cache[id].exports, require, cache[id], __filename, path.dirname(__filename));
+
+    return cache[id].exports;
+  };
+}
