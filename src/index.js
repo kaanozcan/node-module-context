@@ -49,12 +49,15 @@ const getRequire = (nativeRunner, mockedModules, cache) => (function _require (i
 module.exports = function (filename, opt) {
   const {
     preCompiler,
+    preload,
     extensions
   } = Object.assign({}, defaultOptions, opt);
 
   const preCompile = getPrecompiler(preCompiler, compilerCache);
 
-  getPreloader(preCompile)(path.join(process.cwd(), filename));
+  if (preload) {
+    getPreloader(preCompile)(path.join(process.cwd(), filename));
+  }
 
   return function (context) {
     let requireCache = {};
