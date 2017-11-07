@@ -7,7 +7,7 @@ module.exports = (compiler, cache) => (source, filename) => {
   if (hasCompiler && hasInCache) {
     result = cache[filename];
   } else if (hasCompiler) {
-    result = cache[filename] = compiler(source);
+    result = cache[filename] = compiler(source, filename);
   }
 
   return result;
